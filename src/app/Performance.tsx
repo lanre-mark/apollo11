@@ -71,15 +71,14 @@ function Performance({events}: IPerformanceData) {
               },
             },
           } = content;
+          // need to transform resolvers in Array
           const tracingData = {
             duration,
             endTime,
             startTime,
-            resolvers: transformTimingData(resolvers),
+            resolvers: transformTimingData(resolvers, duration),
           };
-          // need to transform resolvers in Array
-          console.log('Go utilize this tracing Data :: ', tracingData);
-          // TODO: Transform resolvers ordering by startOffset and hopeful format to show in the details list on a waterfall model
+          // this should be sent to the hook - tracingData
         }
       }
     }
